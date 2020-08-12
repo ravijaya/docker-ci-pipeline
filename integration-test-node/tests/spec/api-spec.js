@@ -10,7 +10,7 @@ describe("API test suite", () => {
                 done();
             });
         });
-        it("returns description", () => {
+        it("returns description", function(done) {
             request.get(base_url, (error, response, body) => {
                 expect(body).toBe("Sample API");
                 done();

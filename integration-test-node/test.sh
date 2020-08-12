@@ -9,6 +9,7 @@ docker container run --rm -d \
     -v $(pwd)/database:/docker-entrypoint-initdb.d \
     -v pg-data:/var/lib/postgresql/data \
     -e POSTGRES_USER=dbuser \
+    -e POSTGRES_PASSWORD=password \
     -e POSTGRES_DB=sample-db \
     postgres:11.5-alpine
 
@@ -20,6 +21,8 @@ docker container run --rm -d \
 
 echo "Sleeping for 5 sec..."
 sleep 5
+
+# api=localhost
 
 docker container run --rm -it \
     --name tests \
